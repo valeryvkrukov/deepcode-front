@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  	<thead class="thead-inverse">
+  		<tr>
+  			<th>Client ID</th>
+  			<th>Credit Card ID</th>
+  			<th>Month</th>
+  			<th>Timestamp</th>
+  			<th>Transaction Type</th>
+  			<th>Amount</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr *ngFor="let record of response">
+  			<td *ngIf="record.clientId != null" [attr.rowspan]="record.clientCount" class="align-middle">{{ record.clientId }}</td>
+  			<td *ngIf="record.creditCardId != null" [attr.rowspan]="record.creditCardCount" class="align-middle">{{ record.creditCardId }}</td>
+  			<td *ngIf="record.month != null" [attr.rowspan]="record.dataCount" class="align-middle">{{ record.month }}</td>
+  			<td class="table-dark">{{ record.timeStamp }}</td>
+  			<td class="table-dark">{{ record.transactionType }}</td>
+  			<td class="table-dark">{{ record.amount }}</td>
+  		</tr>
+  	</tbody>
+</table>

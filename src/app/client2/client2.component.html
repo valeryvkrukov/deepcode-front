@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+	<div class="col-md-4">
+		<form>
+			<h2>File uploading</h2>
+			<div *ngIf="errors && errors.length" class="alert alert-danger">
+				<p *ngFor="let error of errors">{{ error }}</p>
+			</div>
+			<div *ngIf="succeeded && succeeded.length" class="alert alert-success">
+				<p>File uploaded</p>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label>Upload file</label>
+				<input type="file" #fileInput placeholder="Upload file...">
+			</div>
+			<button class="btn btn-primary" (click)="uploadFile()">Upload</button>
+		</form>
+	</div>
+</div>
+<div *ngIf="succeeded && succeeded.length" class="row justify-content-center mt-3">
+	<div class="col-md-4">
+		<h5 class="mb-1">Uploaded file info:</h5>
+		<p *ngFor="let info of succeeded" class="mb-1">
+			<strong>New filename:</strong><br>
+			{{ info.name }}
+			<br>
+			<small><strong>Uploaded at:</strong> {{ formatDate(info.createdOn) }}</small>
+		</p>
+	</div>
+</div>
